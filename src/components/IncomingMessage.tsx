@@ -1,5 +1,12 @@
+import { Message } from '../interfaces/message';
+import { horaMes } from '../helpers/horaMes';
 
-const IncomingMessage = () => {
+interface Props {
+    message: Message;
+}
+
+const IncomingMessage = ( { message }: Props ) => {
+
     return (
         <div className="incoming_msg">
             <div className="incoming_msg_img">
@@ -7,9 +14,8 @@ const IncomingMessage = () => {
             </div>
             <div className="received_msg">
                 <div className="received_withd_msg">
-                    <p>Test which is a new approach to have all
-                        solutions</p>
-                    <span className="time_date"> 11:01 AM | June 9</span>
+                    <p>{ message.mensaje }</p>
+                    <span className="time_date"> { horaMes( message.createdAt ) }</span>
                 </div>
             </div>
         </div>

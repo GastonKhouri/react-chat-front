@@ -1,11 +1,19 @@
+import { Message } from '../interfaces/message';
+import { horaMes } from '../helpers/horaMes';
 
-const OutgoingMessage = () => {
+interface Props {
+    message: Message;
+}
+
+const OutgoingMessage = ( { message }: Props ) => {
+
+    horaMes( message.createdAt );
+
     return (
         <div className="outgoing_msg">
             <div className="sent_msg">
-                <p>Test which is a new approach to have all
-                    solutions</p>
-                <span className="time_date"> 11:01 AM | June 9</span>
+                <p>{ message.mensaje }</p>
+                <span className="time_date"> { horaMes( message.createdAt ) }</span>
             </div>
         </div>
     );
